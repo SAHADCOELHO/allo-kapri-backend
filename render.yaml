@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ak-backend
+    env: node
+    plan: free
+    buildCommand: "npm ci"
+    startCommand: "node server/index.js"
+    healthCheckPath: "/healthz"
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 5050
+      - key: EXCEL_PATH
+        value: ./public/allo-kapri-catalog.xlsx
